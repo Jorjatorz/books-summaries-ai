@@ -30,3 +30,6 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# etl
+etl/data.ndjson

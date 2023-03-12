@@ -1,8 +1,9 @@
+import SampleBook from "../components/SampleBook";
 
 export default function Home() {
   return (
     <main>
-      <div>Hello World</div>
+      <SampleBook />
     </main>
   )
 }

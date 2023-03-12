@@ -11,7 +11,7 @@ function print_help {
   echo "  -p, --page-size PAGE_SIZE Number of records per page (default: 10)"
   echo
   echo "Example:"
-  echo "./get-deepstash-articles.sh --max-pages 10 --page-size 20"
+  echo "$0 --max-pages 10 --page-size 20"
 }
 
 # set default values for command line arguments
