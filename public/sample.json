@@ -1,63 +1,65 @@
 {
-    "author": "Hal Elrod",
-    "context": "SAVERS!",
-    "created_at": "2022-08-12T00:51:21.840090",
-    "description": "The Miracle Morning is already transforming the lives of tens of thousands of people around the world by showing them how to wake up each day with more ENERGY, MOTIVATION, and FOCUS to take your life to the next level. It's been right here in front of us all along, but this book has finally brought it to life.",
-    "favicon": null,
-    "id": 146504,
-    "image": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1459775078l/17166225.jpg",
-    "image_blurhash": "LnE:iAofM|j[yZoej]j[9aWBoej[",
-    "image_color": "76A4CA",
-    "image_compressed": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1459775078l/17166225.jpg",
-    "image_preview": "https://preview.deepstash.com/a/146504-1660266470.png",
-    "images": "[]",
-    "last_featured": null,
-    "last_trending": null,
-    "resource_uri": "/api/v1/article/146504/",
-    "source_subtype": 0,
-    "source_type": 1,
-    "status": 3,
-    "suggested_blocks": null,
-    "suggested_hashtags": "['books']",
-    "title": "The Miracle Morning",
-    "title_in_collection": null,
-    "total_comments": 0,
-    "total_reactions": 26,
-    "type": 1,
-    "updated_at": "2022-08-12T01:07:48.274240",
-    "url": "https://books.google.com/books/about/The_Miracle_Morning.html?hl=&id=xPtwrgEACAAJ",
-    "user_id": 1470866,
-    "key_ideas": [
-        {
-        "title": "The Miracle Morning routine",
-        "description": "The book introduces a morning routine designed to improve productivity and overall quality of life. The routine consists of six habits: silence, affirmations, visualization, exercise, reading, and scribing."
-        },
-        {
-        "title": "The power of habit stacking",
-        "description": "The author explains how to create new habits by stacking them on top of existing ones, making it easier to incorporate them into your daily routine. By starting small and gradually building on each habit, you can create a powerful morning routine that sets you up for success."
-        },
-        {
-        "title": "The importance of personal development",
-        "description": "The book emphasizes the importance of personal development and self-improvement in achieving success and happiness. Through the morning routine, readers are encouraged to focus on personal growth and reflect on their goals and values."
-        }
-    ],
-    "topics": [
-        "Self-help",
-        "Productivity",
-        "Personal Development"
-    ],
-    "similar_books": [
-        {
-        "title": "Atomic Habits",
-        "author": "James Clear"
-        },
-        {
-        "title": "The 5 AM Club",
-        "author": "Robin Sharma"
-        },
-        {
-        "title": "The Compound Effect",
-        "author": "Darren Hardy"
-        }
-    ]
+    "146504": {
+        "author": "Hal Elrod",
+        "context": "SAVERS!",
+        "created_at": "2022-08-12T00:51:21.840090",
+        "description": "The Miracle Morning is already transforming the lives of tens of thousands of people around the world by showing them how to wake up each day with more ENERGY, MOTIVATION, and FOCUS to take your life to the next level. It's been right here in front of us all along, but this book has finally brought it to life.",
+        "favicon": null,
+        "id": 146504,
+        "image": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1459775078l/17166225.jpg",
+        "image_blurhash": "LnE:iAofM|j[yZoej]j[9aWBoej[",
+        "image_color": "76A4CA",
+        "image_compressed": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1459775078l/17166225.jpg",
+        "image_preview": "https://preview.deepstash.com/a/146504-1660266470.png",
+        "images": "[]",
+        "last_featured": null,
+        "last_trending": null,
+        "resource_uri": "/api/v1/article/146504/",
+        "source_subtype": 0,
+        "source_type": 1,
+        "status": 3,
+        "suggested_blocks": null,
+        "suggested_hashtags": "['books']",
+        "title": "The Miracle Morning",
+        "title_in_collection": null,
+        "total_comments": 0,
+        "total_reactions": 26,
+        "type": 1,
+        "updated_at": "2022-08-12T01:07:48.274240",
+        "url": "https://books.google.com/books/about/The_Miracle_Morning.html?hl=&id=xPtwrgEACAAJ",
+        "user_id": 1470866,
+        "key_ideas": [
+            {
+                "title": "The Miracle Morning routine",
+                "description": "The book introduces a morning routine designed to improve productivity and overall quality of life. The routine consists of six habits: silence, affirmations, visualization, exercise, reading, and scribing."
+            },
+            {
+                "title": "The power of habit stacking",
+                "description": "The author explains how to create new habits by stacking them on top of existing ones, making it easier to incorporate them into your daily routine. By starting small and gradually building on each habit, you can create a powerful morning routine that sets you up for success."
+            },
+            {
+                "title": "The importance of personal development",
+                "description": "The book emphasizes the importance of personal development and self-improvement in achieving success and happiness. Through the morning routine, readers are encouraged to focus on personal growth and reflect on their goals and values."
+            }
+        ],
+        "topics": [
+            "Self-help",
+            "Productivity",
+            "Personal Development"
+        ],
+        "similar_books": [
+            {
+                "title": "Atomic Habits",
+                "author": "James Clear"
+            },
+            {
+                "title": "The 5 AM Club",
+                "author": "Robin Sharma"
+            },
+            {
+                "title": "The Compound Effect",
+                "author": "Darren Hardy"
+            }
+        ]
+    }
 }
