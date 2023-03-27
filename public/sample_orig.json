@@ -51,18 +51,33 @@
         "similar_books": [
             {
                 "title": "Atomic Habits",
+                "author": "James Clear",
                 "slug": "atomic-habits",
-                "image": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1459775078l/17166225.jpg"
+                "topics": [
+                    "Self-help",
+                    "Personal Development"
+                ],
+                "image": "https://books.google.com/books/about/The_Miracle_Morning.html?hl=&id=xPtwrgEACAAJ"
             },
             {
                 "title": "The 5 AM Club",
+                "author": "Robin Sharma",
                 "slug": "the-5-am-club",
-                "image": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1459775078l/17166225.jpg"
+                "topics": [
+                    "Self-help",
+                    "Personal Development"
+                ],
+                "image": "https://books.google.com/books/about/The_Miracle_Morning.html?hl=&id=xPtwrgEACAAJ"
             },
             {
                 "title": "The Compound Effect",
+                "author": "Darren Hardy",
                 "slug": "the-compound-effect",
-                "image": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1459775078l/17166225.jpg"
+                "topics": [
+                    "Self-help",
+                    "Personal Development"
+                ],
+                "image": "https://books.google.com/books/about/The_Miracle_Morning.html?hl=&id=xPtwrgEACAAJ"
             }
         ]
     }
