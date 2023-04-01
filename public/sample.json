@@ -29,6 +29,7 @@
         "updated_at": "2022-08-12T01:07:48.274240",
         "url": "https://books.google.com/books/about/The_Miracle_Morning.html?hl=&id=xPtwrgEACAAJ",
         "user_id": 1470866,
+        "amazon_url": "https://www.youtube.com/watch?v=skn2OeY4X9o",
         "key_ideas": [
             {
                 "title": "The Miracle Morning routine",
@@ -63,6 +64,48 @@
                 "title": "The Compound Effect",
                 "slug": "the-compound-effect",
                 "image": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1459775078l/17166225.jpg"
+            }
+        ],
+        "chapters": [
+            {
+                "title": "Chapter 1: The Miracle Morning",
+                "description": "Introduces the concept of the Miracle Morning routine and how it can transform your life by setting you up for success each day through six practices: silence, affirmations, visualization, exercise, reading, and scribing."
+            },
+            {
+                "title": "Chapter 2: The Miracle Morning Origin: Birth of a Ritual",
+                "description": "Elrod shares how he developed the Miracle Morning routine after hitting rock bottom, being in a car accident that left him dead for six minutes, and being faced with financial hardship. He discusses how the Miracle Morning gave him a new perspective and helped him overcome his challenges."
+            },
+            {
+                "title": "Chapter 3: The 5-Step Snooze-Proof Wake Up Strategy",
+                "description": "Provides a step-by-step guide to waking up early and sticking to the Miracle Morning routine, including setting a clear intention, preparing the night before, using an alarm clock away from the bed, drinking water upon waking, and having an accountability partner."
+            },
+            {
+                "title": "Chapter 4: The Life S.A.V.E.R.S.",
+                "description": "Introduces the Life S.A.V.E.R.S., the six practices that make up the Miracle Morning routine: silence, affirmations, visualization, exercise, reading, and scribing. Elrod explains the benefits of each practice and how they work together to transform your life."
+            },
+            {
+                "title": "Chapter 5: The 6-Minute Miracle (The Miracle Morning for Busy People)",
+                "description": "Provides a condensed version of the Miracle Morning routine for those who are short on time, consisting of one minute for each of the six practices: silence, affirmations, visualization, exercise, reading, and scribing."
+            },
+            {
+                "title": "Chapter 6: Customizing Your Miracle Morning to Fit Your Lifestyle",
+                "description": "Discusses how to adapt the Miracle Morning routine to fit your individual needs and preferences, including suggestions for modifying the practices to suit different goals, lifestyles, and schedules."
+            },
+            {
+                "title": "Chapter 7: From Unbearable to Unstoppable: The Miracle Morning's Impact on Real People",
+                "description": "Shares stories of individuals who have transformed their lives through the Miracle Morning routine, including overcoming depression, achieving financial success, and improving relationships. Elrod explains how the routine can help anyone achieve their goals and dreams."
+            },
+            {
+                "title": "Chapter 8: Taking the Miracle Morning to the Next Level",
+                "description": "Discusses advanced techniques for maximizing the benefits of the Miracle Morning routine, including developing a growth mindset, creating a vision board, practicing gratitude, and setting and achieving goals. Elrod emphasizes the importance of continual growth and improvement."
+            },
+            {
+                "title": "Chapter 9: The Miracle Morning 30-Day Life Transformation Challenge",
+                "description": "Provides a 30-day challenge to help readers establish the Miracle Morning routine and make positive changes in their lives. Elrod offers guidance and support for each day of the challenge and encourages readers to share their experiences with the Miracle Morning community."
+            },
+            {
+                "title": "Chapter 10: The Miracle Morning Formula That Will Change Your Life (And the World)",
+                "description": "Summarizes the Miracle Morning routine and its potential to transform individuals and the world. Elrod emphasizes the importance of starting each day with intention and purpose and encourages readers to take action and make positive changes in their lives."
             }
         ]
     }
