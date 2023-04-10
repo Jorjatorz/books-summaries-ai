@@ -2,14 +2,16 @@ import { React, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { BsFillInfoCircleFill } from 'react-icons/bs'
-import SearchBar from '@/components/search_bar';
+import SearchBar from 'components/search_bar';
+
+import { getBookData } from 'utils/contentful'
 
 import "../../globals.css";
 
 // DEBUG
 import data from '../../../public/sample.json'
 
-export function getBookData(slug) {
+export function getBookData_from_json(slug) {
     return data[slug];
 }
 
@@ -32,7 +34,7 @@ function KeyIdeas(props) {
     const book = props.book
     return (
         <div>
-            <ul>{book.key_ideas.map((idea) =>
+            <ul>{book.keyIdeas.map((idea) =>
                 <li className='flex flex-col justify-center w-100% min-h-[12rem] rounded-md text-center bg-white my-6 shadow-md p-4 hover:scale-[1.02] ease-in duration-300'>
                     <AIToolTip className='flex justify-end' />
                     <h3 className='text-2xl font-bold italic'>{idea.title}</h3>
@@ -44,20 +46,33 @@ function KeyIdeas(props) {
     )
 }
 
-function ChaperSummaries(props) {
+function ChapterSummaries(props) {
     const book = props.book
-    return (
-        <div>
-            <ul>{book.chapters.map((chapter) =>
-                <li className='flex flex-col justify-center w-100% min-h-[12rem] rounded-md text-center bg-white my-6 shadow-md p-4 hover:scale-[1.02] ease-in duration-300'>
-                    <AIToolTip className='flex justify-end' />
-                    <h3 className='text-2xl font-bold italic'>{chapter.title}</h3>
-                    <p className='text-lg mt-4'>{chapter.description}</p>
-                </li>
-            )}
-            </ul>
-        </div>
-    )
+    if (book.chaptersSummaries) {
+        return (
+            <div>
+                <ul>{book.chaptersSummaries.map((chapter) =>
+                    <li className='flex flex-col justify-center w-100% min-h-[12rem] rounded-md text-center bg-white my-6 shadow-md p-4 hover:scale-[1.02] ease-in duration-300'>
+                        <AIToolTip className='flex justify-end' />
+                        <h3 className='text-2xl font-bold italic'>{chapter.title}</h3>
+                        <p className='text-lg mt-4'>{chapter.description}</p>
+                    </li>
+                )}
+                </ul>
+            </div>
+        )
+    }
+    else {
+        return (
+            <div>
+                <ul>
+                    <li className='flex flex-col justify-center w-100% min-h-[12rem] rounded-md text-center bg-white my-6 shadow-md p-4 hover:scale-[1.02] ease-in duration-300'>
+                        <h3 className='text-2xl font-bold italic'>This book doesn't have Chapters Summaries generated.</h3>
+                        <p className='text-lg mt-4'>This is probably because the AI doesn't have deep knowledge of the book. <br /> Give it time :)</p>
+                    </li>
+                </ul>
+            </div>)
+    }
 }
 
 function ValueAddedTabs(props) {
@@ -85,38 +100,44 @@ export default function BookPage({ book }) {
             <div className='flex pl-32 py-12 gap-16'>
                 <div className='shrink-0 max-w-[200px]'>
                     <div className={`bg-gray-50 p-4 rounded-lg shadow-xl`}>
-                        <Image src={book.image} width="200" height="0" alt="Picture of the book cover" />
+                        <Image src={'https:' + book.featuredImage.file.url} width="200" height="0" alt="Picture of the book cover" />
                     </div>
-                    <Link href={book.amazon_url} target='_blank'>
-                        <h2 className='text-2xl font-bold text-center m-2 text-[#4A4A4A]'>Support the Author <br /> Buy it!</h2>
-                    </Link>
+                    {
+                        book.amazon_url &&
+                        <Link href={book.amazon_url} target='_blank'>
+                            <h2 className='text-2xl font-bold text-center m-2 text-[#4A4A4A]'>Support the Author <br /> Buy it!</h2>
+                        </Link>
+                    }
                 </div>
                 <div className='grow'>
                     <h1 className='text-5xl font-bold'>{book.title}</h1>
-                    <h2 className='text-2xl italic'>by <span className='font-bold'>{book.author}</span></h2>
+                    <h2 className='text-2xl italic'>by <span className='font-bold'>{book.author.name}</span></h2>
                     <ul className='flex gap-4 mt-2'>{book.topics.map((topic) =>
                         <li className='bg-[#B9F2D8] py-1 px-2 rounded-lg font-medium'>{topic}</li>)}
                     </ul>
                     <div className='my-8 text-lg'>{book.description}</div>
-                    <ValueAddedTabs titles={["Key Ideas", "Chapter Summaries"]} bodies={[<KeyIdeas book={book} />, <ChaperSummaries book={book} />]} />
+                    <ValueAddedTabs titles={["Key Ideas", "Chapter Summaries"]} bodies={[<KeyIdeas book={book} />, <ChapterSummaries book={book} />]} />
 
 
                 </div>
+
                 <div className='basis-1/4 mr-4'>
-                    <h2 className='text-2xl text-center font-semibold'>More like this</h2>
-                    <ul className='flex flex-col gap-8 mt-4'>
-                    {book.similar_books.map((sb) =>
-                        <Link href={`book/${sb.slug}`}>
-                            <li>
-                                <div className='p-2 bg-white rounded-lg hover:scale-105 ease-in duration-100'>
-                                    <div className='relative flex flex-col h-[150px] w-[100px] m-auto text-center'>
-                                        <Image src={sb.image} fill alt={`Picture of a related book with name ${sb.title}`} />
-                                    </div>
-                                </div>
-                            </li>
-                        </Link>
-                    )}
-                    </ul>
+                    {book.relatedBooks && <div>
+                        <h2 className='text-2xl text-center font-semibold'>More like this</h2>
+                        <ul className='flex flex-col gap-8 mt-4'>
+                            {book.relatedBooks.map((sb) =>
+                                <Link href={`book/${sb.slug}`}>
+                                    <li>
+                                        <div className='p-2 bg-white rounded-lg hover:scale-105 ease-in duration-100'>
+                                            <div className='relative flex flex-col h-[150px] w-[100px] m-auto text-center'>
+                                                <Image src={sb.image} fill alt={`Picture of a related book with name ${sb.title}`} />
+                                            </div>
+                                        </div>
+                                    </li>
+                                </Link>
+                            )}
+                        </ul>
+                    </div>}
                 </div>
             </div>
         </main >
@@ -138,7 +159,7 @@ export async function getStaticPaths() {
 
 
 export async function getStaticProps({ params }) {
-    const bookData = getBookData(params.slug);
+    const bookData = await getBookData(params.slug);
     return {
         props: {
             book: bookData,
