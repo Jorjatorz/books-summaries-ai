@@ -103,19 +103,17 @@ export default function BookPage({ book }) {
                         </Link>
                     }
                 </div>
-                <div className='grow'>
+                <div className='grow h-screen mb-8'>
                     <h1 className='text-5xl font-bold'>{book.title}</h1>
                     <h2 className='text-2xl italic'>by <span className='font-bold'>{book.author.name}</span></h2>
                     <ul className='flex gap-4 mt-2'>{book.topics.map((topic) =>
-                        <li className='bg-[#B9F2D8] py-1 px-2 rounded-lg font-medium'>{topic}</li>)}
+                        <li className='bg-[#00a67f] py-1 px-2 rounded-lg font-medium text-white'>{topic}</li>)}
                     </ul>
                     <div className='my-8 text-lg'>{book.description}</div>
                     <ValueAddedTabs titles={["Key Ideas", "Chapter Summaries"]} bodies={[<KeyIdeas book={book} />, <ChapterSummaries book={book} />]} />
-
-
                 </div>
 
-                <div className='basis-1/4 mr-4'>
+                <div className='shrink-0 w-[10%] mr-4'>
                     {book.relatedBooks && <div>
                         <h2 className='text-2xl text-center font-semibold'>More like this</h2>
                         <ul className='flex flex-col gap-8 mt-4'>
