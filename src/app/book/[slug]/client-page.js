@@ -1,19 +1,13 @@
+'use client'
+
 import { React, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { BsFillInfoCircleFill } from 'react-icons/bs'
 import SearchBar from 'components/search_bar';
+import { BsFillInfoCircleFill } from 'react-icons/bs'
 
-import { getBookData } from 'utils/contentful'
 
-import "../../globals.css";
-
-// DEBUG
-import data from '../../../public/sample.json'
-
-export function getBookData_from_json(slug) {
-    return data[slug];
-}
+import "globals.css";
 
 function AIToolTip(props) {
     return (
@@ -142,27 +136,4 @@ export default function BookPage({ book }) {
             </div>
         </main >
     )
-}
-
-export async function getStaticPaths() {
-    return {
-        paths: Object.keys(data).map(slug => {
-            return {
-                params: {
-                    slug: slug
-                }
-            }
-        }),
-        fallback: false
-    }
-}
-
-
-export async function getStaticProps({ params }) {
-    const bookData = await getBookData(params.slug);
-    return {
-        props: {
-            book: bookData,
-        },
-    };
 }

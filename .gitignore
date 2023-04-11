@@ -33,3 +33,6 @@ yarn-error.log*
 
 # etl
 etl/data.ndjson
+
+# env files
+.env*
