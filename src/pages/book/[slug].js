@@ -103,9 +103,9 @@ export default function BookPage({ book }) {
                         <Image src={'https:' + book.featuredImage.file.url} width="200" height="0" alt="Picture of the book cover" />
                     </div>
                     {
-                        book.amazon_url &&
-                        <Link href={book.amazon_url} target='_blank'>
-                            <h2 className='text-2xl font-bold text-center m-2 text-[#4A4A4A]'>Support the Author <br /> Buy it!</h2>
+                        book.storesUrls &&
+                        <Link href={book.storesUrls[0].url} target='_blank'>
+                            <h2 className='text-2xl font-bold text-center m-2 text-[#4A4A4A]'>Support the Author <br /> Buy it here!</h2>
                         </Link>
                     }
                 </div>
