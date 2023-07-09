@@ -1,0 +1,2 @@
+- Check that newly added books appear without rebuilding the app - https://beta.nextjs.org/docs/api-reference/generate-static-params
+- Create a Not-Found page

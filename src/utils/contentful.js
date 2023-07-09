@@ -1,9 +1,13 @@
 import { createClient } from 'contentful';
+const contentful = require('contentful')
 
-const client = createClient({
-    space: process.env.REACT_APP_CONTENTFUL_SPACE_ID,
-    accessToken: process.env.REACT_APP_CONTENTFUL_ACCESS_TOKEN,
-});
+
+const client = contentful.createClient({
+    "space": process.env.REACT_APP_CONTENTFUL_SPACE_ID,
+    "accessToken": process.env.REACT_APP_CONTENTFUL_ACCESS_TOKEN,
+}
+)
+
 
 function unpackBookFields(book) {
     // Auxiliary func to expand nested contentful content
@@ -21,6 +25,8 @@ export const getBookData = async (slug) => {
         'fields.slug': slug
     });
     console.assert(response.total === 1, `Just one Book entry is expected to be returned for slug: ${slug}`)
+    if (response.total !== 1) return null
+
     const book = response.items[0].fields
 
     unpackBookFields(book)
@@ -54,4 +60,17 @@ export const getSuggestedBooks = async (number = 4) => {
     }
 
     return selectedBooks
+};
+
+export const searchBookByTitle = async (title, limit = 4) => {
+    const response = await client.getEntries({
+        content_type: 'pageBookIdeas',
+        select: 'fields.slug, fields.title',
+        'fields.title[match]': title,
+        limit: limit
+    });
+    if (response.total === 0) return null
+
+    const books = response.items.map((e) => unpackBookFields(e.fields))
+    return books
 };
