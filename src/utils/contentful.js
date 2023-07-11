@@ -1,9 +1,12 @@
-import { createClient } from 'contentful';
+const contentful = require('contentful')
 
-const client = createClient({
-    space: process.env.REACT_APP_CONTENTFUL_SPACE_ID,
-    accessToken: process.env.REACT_APP_CONTENTFUL_ACCESS_TOKEN,
-});
+
+const client = contentful.createClient({
+    "space": process.env.REACT_APP_CONTENTFUL_SPACE_ID,
+    "accessToken": process.env.REACT_APP_CONTENTFUL_ACCESS_TOKEN,
+}
+)
+
 
 function unpackBookFields(book) {
     // Auxiliary func to expand nested contentful content
@@ -13,6 +16,7 @@ function unpackBookFields(book) {
         book.featuredImage = book.featuredImage.fields
     if (book.relatedBooks)
         book.relatedBooks = book.relatedBooks.map((e) => e.fields)
+    return book
 }
 
 export const getBookData = async (slug) => {
@@ -21,6 +25,8 @@ export const getBookData = async (slug) => {
         'fields.slug': slug
     });
     console.assert(response.total === 1, `Just one Book entry is expected to be returned for slug: ${slug}`)
+    if (response.total !== 1) return null
+
     const book = response.items[0].fields
 
     unpackBookFields(book)
@@ -54,4 +60,20 @@ export const getSuggestedBooks = async (number = 4) => {
     }
 
     return selectedBooks
+};
+
+export const searchBookByTitle = async (title, results_limit = 4, title_min_length = 4) => {
+    title = String(title) // Safe guard
+    if (title.length < title_min_length) return []
+
+    const response = await client.getEntries({
+        content_type: 'pageBookIdeas',
+        select: 'fields.slug, fields.title',
+        'fields.title[match]': title,
+        limit: results_limit
+    });
+    if (response.total === 0) return []
+
+    const books = response.items.map((e) => unpackBookFields(e.fields))
+    return books
 };

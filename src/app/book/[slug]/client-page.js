@@ -3,6 +3,7 @@
 import { React, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { notFound } from 'next/navigation';
 import SearchBar from 'components/search_bar';
 import { BsFillInfoCircleFill } from 'react-icons/bs'
 
@@ -88,6 +89,7 @@ function ValueAddedTabs(props) {
 }
 
 export default function BookPage({ book }) {
+    if (!book) notFound()
     return (
         <main className={`bg-gradient-to-b from-[#76a4ca] to-[24rem] to-[#F0EFE2] w-full h-full m-auto pt-4`}>
             <div className='flex items-center text-center justify-center m-auto'><SearchBar className='w-[40%]' /></div>
