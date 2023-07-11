@@ -12,14 +12,19 @@ export default class SearchBar extends Component {
 
     MatchedResultsHighlight({ results, text, className }) {
         // Displays the results using the text
+        if (results == null || results.length == 0)
+            return <div></div>
 
         // Build a styled matching text to display
         const styledMatches = results.map((result) => {
+            const title = result.title
+            const titleLower = title.toLowerCase()
+
             // Find the position of the match and style it
-            const idx = result.search(text)
-            const preHighlight = result.slice(0, idx)
-            const highlight = result.slice(idx, idx + text.length)
-            const postHighlight = result.slice(idx + text.length)
+            const idx = Math.max(titleLower.indexOf(text.toLowerCase()), 0)
+            const preHighlight = title.slice(0, idx)
+            const highlight = title.slice(idx, idx + text.length)
+            const postHighlight = title.slice(idx + text.length)
             return <span>{preHighlight}<span className='text-rose-600 font-semibold'>{highlight}</span>{postHighlight}</span>
         })
 

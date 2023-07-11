@@ -1,4 +1,3 @@
-import { createClient } from 'contentful';
 const contentful = require('contentful')
 
 
@@ -17,6 +16,7 @@ function unpackBookFields(book) {
         book.featuredImage = book.featuredImage.fields
     if (book.relatedBooks)
         book.relatedBooks = book.relatedBooks.map((e) => e.fields)
+    return book
 }
 
 export const getBookData = async (slug) => {
@@ -62,14 +62,17 @@ export const getSuggestedBooks = async (number = 4) => {
     return selectedBooks
 };
 
-export const searchBookByTitle = async (title, limit = 4) => {
+export const searchBookByTitle = async (title, results_limit = 4, title_min_length = 4) => {
+    title = String(title) // Safe guard
+    if (title.length < title_min_length) return []
+
     const response = await client.getEntries({
         content_type: 'pageBookIdeas',
         select: 'fields.slug, fields.title',
         'fields.title[match]': title,
-        limit: limit
+        limit: results_limit
     });
-    if (response.total === 0) return null
+    if (response.total === 0) return []
 
     const books = response.items.map((e) => unpackBookFields(e.fields))
     return books
